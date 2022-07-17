@@ -5,6 +5,7 @@ class IRobitTests: XCTestCase {
     func testCreateRobitBrain() {
         let brain = RobitBrain()
         XCTAssertNotNil(brain, "Could not create RobitBrain")
+        XCTAssertEqual(brain.goal, .idle)
     }
     
     func testCMDFaceDirectionRobitFaceDirection() {
@@ -15,7 +16,7 @@ class IRobitTests: XCTestCase {
         brain.commandInput.send(.faceNorth)
         
         /// Then:
-        brain.goal = .face(angle: 0.0)
+        XCTAssertEqual(brain.goal, .face(angle: 0.0))
     }
     
     func testGoalFaceNorthMotorOutput() {

@@ -20,11 +20,11 @@ class RobitBrain: ObservableObject {
             case .faceNorth:
                 self?.goal = .face(angle: 0.0)
             case .faceEast:
-                break
+                self?.goal = .face(angle: Double.pi/2)
             case .faceSouth:
-                break
+                self?.goal = .face(angle: Double.pi)
             case .faceWest:
-                break
+                self?.goal = .face(angle: Double.pi/(-2))
             }
         }.store(in: &bag)
         
