@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0852884933E0025E2E3 /* RobitCommand.swift */; };
+		1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */; };
 		1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106A2884832300F33F81 /* IRobitApp.swift */; };
 		1A99106D2884832300F33F81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106C2884832300F33F81 /* ContentView.swift */; };
 		1A99106F2884832B00F33F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A99106E2884832B00F33F81 /* Assets.xcassets */; };
@@ -23,16 +25,11 @@
 			remoteGlobalIDString = 1A9910662884832300F33F81;
 			remoteInfo = IRobit;
 		};
-		1A9910822884832B00F33F81 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1A99105F2884832300F33F81 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1A9910662884832300F33F81;
-			remoteInfo = IRobit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A53B0852884933E0025E2E3 /* RobitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitCommand.swift; sourceTree = "<group>"; };
+		1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitMovementOutput.swift; sourceTree = "<group>"; };
 		1A9910672884832300F33F81 /* IRobit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRobit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A99106A2884832300F33F81 /* IRobitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRobitApp.swift; sourceTree = "<group>"; };
 		1A99106C2884832300F33F81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,7 +37,6 @@
 		1A9910712884832B00F33F81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1A9910772884832B00F33F81 /* IRobitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRobitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A99107B2884832B00F33F81 /* IRobitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRobitTests.swift; sourceTree = "<group>"; };
-		1A9910812884832B00F33F81 /* IRobitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRobitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A9910992884876000F33F81 /* RobitBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,13 +49,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1A9910742884832B00F33F81 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1A99107E2884832B00F33F81 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -83,7 +72,6 @@
 			children = (
 				1A9910672884832300F33F81 /* IRobit.app */,
 				1A9910772884832B00F33F81 /* IRobitTests.xctest */,
-				1A9910812884832B00F33F81 /* IRobitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				1A9910992884876000F33F81 /* RobitBrain.swift */,
+				1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */,
+				1A53B0852884933E0025E2E3 /* RobitCommand.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -194,24 +184,6 @@
 			productReference = 1A9910772884832B00F33F81 /* IRobitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1A9910802884832B00F33F81 /* IRobitUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1A9910912884832B00F33F81 /* Build configuration list for PBXNativeTarget "IRobitUITests" */;
-			buildPhases = (
-				1A99107D2884832B00F33F81 /* Sources */,
-				1A99107E2884832B00F33F81 /* Frameworks */,
-				1A99107F2884832B00F33F81 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1A9910832884832B00F33F81 /* PBXTargetDependency */,
-			);
-			name = IRobitUITests;
-			productName = IRobitUITests;
-			productReference = 1A9910812884832B00F33F81 /* IRobitUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -226,10 +198,6 @@
 						CreatedOnToolsVersion = 13.3.1;
 					};
 					1A9910762884832B00F33F81 = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = 1A9910662884832300F33F81;
-					};
-					1A9910802884832B00F33F81 = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 1A9910662884832300F33F81;
 					};
@@ -250,7 +218,6 @@
 			targets = (
 				1A9910662884832300F33F81 /* IRobit */,
 				1A9910762884832B00F33F81 /* IRobitTests */,
-				1A9910802884832B00F33F81 /* IRobitUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,13 +239,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A99107F2884832B00F33F81 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -286,6 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */,
+				1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */,
 				1A99109A2884876000F33F81 /* RobitBrain.swift in Sources */,
 				1A99106D2884832300F33F81 /* ContentView.swift in Sources */,
 				1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */,
@@ -300,13 +262,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1A99107D2884832B00F33F81 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -314,11 +269,6 @@
 			isa = PBXTargetDependency;
 			target = 1A9910662884832300F33F81 /* IRobit */;
 			targetProxy = 1A9910782884832B00F33F81 /* PBXContainerItemProxy */;
-		};
-		1A9910832884832B00F33F81 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1A9910662884832300F33F81 /* IRobit */;
-			targetProxy = 1A9910822884832B00F33F81 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,7 +454,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8PD973N6JY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -524,7 +474,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8PD973N6JY;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,42 +482,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IRobit.app/IRobit";
-			};
-			name = Release;
-		};
-		1A9910922884832B00F33F81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8PD973N6JY;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IRobit;
-			};
-			name = Debug;
-		};
-		1A9910932884832B00F33F81 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8PD973N6JY;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobitUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = IRobit;
 			};
 			name = Release;
 		};
@@ -597,15 +511,6 @@
 			buildConfigurations = (
 				1A99108F2884832B00F33F81 /* Debug */,
 				1A9910902884832B00F33F81 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1A9910912884832B00F33F81 /* Build configuration list for PBXNativeTarget "IRobitUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1A9910922884832B00F33F81 /* Debug */,
-				1A9910932884832B00F33F81 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
