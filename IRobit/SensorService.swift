@@ -9,7 +9,7 @@ protocol SensorService: ObservableObject {
 class PhoneSensorService: ObservableObject, SensorService {
     let motionManager = CMMotionManager()
     var bag = Set<AnyCancellable>()
-    var positionPublisher = PassthroughSubject<SensorInput, Never>()
+    @Published var positionPublisher = PassthroughSubject<SensorInput, Never>()
     public init() {
         print("created sensor service.")
         motionManager.accelerometerUpdateInterval = 0.1

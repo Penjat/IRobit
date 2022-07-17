@@ -1,6 +1,6 @@
 import Foundation
 
-enum RobitGoal {
+enum RobitGoal: Equatable {
     case idle
     case face(angle: Double)
 }

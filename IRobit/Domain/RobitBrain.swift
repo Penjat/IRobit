@@ -33,7 +33,13 @@ class RobitBrain: ObservableObject {
             case .idle:
                 break
             case .face(angle: let angle):
-                print("\(angle) \(sensorInput)")
+                if abs( angle - sensorInput.roll) < 0.1 {
+                    self?.movementOutput = RobitMovementOutput.STOPPED
+                    self?.goal = .idle
+                    return
+                }
+                self?.movementOutput = angle > sensorInput.roll ? RobitMovementOutput.RIGHT : RobitMovementOutput.LEFT
+                
             case .none:
                 break
             }
