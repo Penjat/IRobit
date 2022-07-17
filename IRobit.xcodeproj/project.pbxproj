@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0852884933E0025E2E3 /* RobitCommand.swift */; };
 		1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */; };
+		1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0892884975B0025E2E3 /* SensorService.swift */; };
 		1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106A2884832300F33F81 /* IRobitApp.swift */; };
 		1A99106D2884832300F33F81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106C2884832300F33F81 /* ContentView.swift */; };
 		1A99106F2884832B00F33F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A99106E2884832B00F33F81 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		1A53B0852884933E0025E2E3 /* RobitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitCommand.swift; sourceTree = "<group>"; };
 		1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitMovementOutput.swift; sourceTree = "<group>"; };
+		1A53B0892884975B0025E2E3 /* SensorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
 		1A9910672884832300F33F81 /* IRobit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRobit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A99106A2884832300F33F81 /* IRobitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRobitApp.swift; sourceTree = "<group>"; };
 		1A99106C2884832300F33F81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 		1A9910962884840400F33F81 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				1A53B0892884975B0025E2E3 /* SensorService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				1A99109A2884876000F33F81 /* RobitBrain.swift in Sources */,
 				1A99106D2884832300F33F81 /* ContentView.swift in Sources */,
 				1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */,
+				1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +402,7 @@
 				DEVELOPMENT_TEAM = 8PD973N6JY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -427,6 +432,7 @@
 				DEVELOPMENT_TEAM = 8PD973N6JY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

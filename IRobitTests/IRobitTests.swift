@@ -14,5 +14,20 @@ class IRobitTests: XCTestCase {
         XCTAssertNotNil(brain, "Could not create RobitBrain")
     }
     
-    
+    func testCMDFaceDirectionRobitFaceDirection() {
+        /// Given:
+        let brain = RobitBrain()
+        var lastOutput: RobitMovementOutput?
+        
+        let _ = brain.$movementOutput.sink { output in
+            lastOutput = output
+        }
+        
+        /// When:
+        brain.commandInput.send(.faceNorth)
+        
+        /// Then:
+//        XCTAssertEqual(lastOutput, RobitMovementOutput(motor1Speed: 1, motor2Speed: <#T##Double#>))
+        
+    }
 }
