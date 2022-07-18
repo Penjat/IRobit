@@ -7,8 +7,8 @@ struct RobitView: View {
     @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
     var body: some View {
-        
         ZStack {
+            
             Circle()
                 .fill(brain.goal == .idle ? Color.green : .orange)
                 .frame(width: 300, height: 300)
@@ -26,18 +26,17 @@ struct RobitView: View {
                                 path.addLine(to: CGPoint(x: sin(angle)*150 + 150, y: cos(angle)*150 + 150 ))
                             }.stroke(.black, lineWidth: 6)
                         default:
-                            Text("")
-                            
+                            EmptyView()
                         }
-                        
                     }
                 )
-            
+            if brain.goal != .idle {
+                Text("\(brain.movementOutput == .LEFT ? "LEFT" : "RIGHT")").font(.title)
+            }
             
             VStack {
                 Text("\(goalText)")
-                //            Text("\(sensorInput?.roll ?? 0.0 )  \(sensorInput?.pitch ?? 0.0)  \(sensorInput?.yaw ?? 0.0)")
-                //                .padding()
+                    .padding()
                 
                 Text("\(sensorInput?.yaw ?? 0.0)")
                     .padding()
@@ -57,7 +56,6 @@ struct RobitView: View {
                 }
             }
         }
-        
         .onAppear {
             sensorService.positionPublisher.sink { input in
                 sensorInput = input

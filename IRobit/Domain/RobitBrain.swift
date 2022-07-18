@@ -38,11 +38,22 @@ class RobitBrain: ObservableObject {
                     self?.goal = .idle
                     return
                 }
-                self?.movementOutput = angle > sensorInput.yaw ? RobitMovementOutput.RIGHT : RobitMovementOutput.LEFT
+                let diff = angle - sensorInput.yaw
+                if  diff > Double.pi  {
+                    self?.movementOutput = .RIGHT
+                    
+                } else if diff < -Double.pi {
+                    self?.movementOutput = .LEFT
+                } else {
+                    self?.movementOutput = diff > 0 ? .LEFT : .RIGHT
+                }
+                
                 
             case .none:
                 break
             }
         }.store(in: &bag)
     }
+    
+    
 }
