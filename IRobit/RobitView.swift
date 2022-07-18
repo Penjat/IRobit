@@ -4,6 +4,8 @@ import Combine
 struct RobitView: View {
     @StateObject var brain = RobitBrain()
     @StateObject var sensorService = PhoneSensorService()
+    @StateObject var bodyInteractor = BodyInteractor()
+    
     @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
     var body: some View {
@@ -31,7 +33,7 @@ struct RobitView: View {
                     }
                 )
             if brain.goal != .idle {
-                Text("\(brain.movementOutput == .LEFT ? "LEFT" : "RIGHT")").font(.title)
+                Text("\(brain.movementOutput == .LEFT ? "LEFT" : "RIGHT")").font(.title).opacity(0.6)
             }
             
             VStack {
@@ -54,7 +56,10 @@ struct RobitView: View {
                         brain.commandInput.send(.faceWest)
                     }
                 }
+                
+                Text(bodyInteractor.connectedBody != nil ? "connected" : "not-connected")
             }
+            
         }
         .onAppear {
             sensorService.positionPublisher.sink { input in
@@ -63,6 +68,11 @@ struct RobitView: View {
                 print(linePosition)
             }.store(in: &bag)
             
+            brain.$movementOutput.sink { output in
+                bodyInteractor.toBody.send(output)
+            }.store(in: &bag)
+            
+            bodyInteractor.start()
         }
     }
     

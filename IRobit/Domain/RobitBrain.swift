@@ -16,7 +16,6 @@ class RobitBrain: ObservableObject {
             case .stop:
                 self?.movementOutput = RobitMovementOutput(motor1Speed: 0.0, motor2Speed: 0.0)
                 self?.goal = .idle
-                break
             case .faceNorth:
                 self?.goal = .face(angle: 0.0)
             case .faceEast:
@@ -31,7 +30,9 @@ class RobitBrain: ObservableObject {
         sensorInput.sink { [weak self] sensorInput in
             switch self?.goal {
             case .idle:
-                break
+                if self?.movementOutput != .STOPPED {
+                    self?.movementOutput = .STOPPED
+                }
             case .face(angle: let angle):
                 if abs( sensorInput.yaw - angle) < 0.15 {
                     self?.movementOutput = RobitMovementOutput.STOPPED
@@ -47,13 +48,9 @@ class RobitBrain: ObservableObject {
                 } else {
                     self?.movementOutput = diff > 0 ? .LEFT : .RIGHT
                 }
-                
-                
             case .none:
                 break
             }
         }.store(in: &bag)
     }
-    
-    
 }
