@@ -7,16 +7,32 @@ struct RobitView: View {
     @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
     var body: some View {
+        
         ZStack {
-            
             Circle()
-                .fill(.orange)
+                .fill(brain.goal == .idle ? Color.green : .orange)
                 .frame(width: 300, height: 300)
                 .overlay(
-                    Path { path in
-                        path.move(to: CGPoint(x: 150, y: 150))
-                        path.addLine(to: linePosition)
-                    }.stroke(.blue, lineWidth: 4))
+                    ZStack {
+                        Path { path in
+                            path.move(to: CGPoint(x: 150, y: 150))
+                            path.addLine(to: linePosition)
+                        }.stroke(.blue, lineWidth: 4)
+                        
+                        switch brain.goal {
+                        case .face(angle: let angle):
+                            Path { path in
+                                path.move(to: CGPoint(x: 150, y: 150))
+                                path.addLine(to: CGPoint(x: sin(angle)*150 + 150, y: cos(angle)*150 + 150 ))
+                            }.stroke(.black, lineWidth: 6)
+                        default:
+                            Text("")
+                            
+                        }
+                        
+                    }
+                )
+            
             
             VStack {
                 Text("\(goalText)")
@@ -41,6 +57,7 @@ struct RobitView: View {
                 }
             }
         }
+        
         .onAppear {
             sensorService.positionPublisher.sink { input in
                 sensorInput = input
@@ -52,7 +69,7 @@ struct RobitView: View {
     }
     
     var linePosition: CGPoint {
-        CGPoint(x: cos(sensorInput?.yaw ?? 0.0)*150 + 150, y: sin(sensorInput?.yaw ?? 0.0)*150 + 150)
+        CGPoint(x: sin(sensorInput?.yaw ?? 0.0)*150 + 150, y: cos(sensorInput?.yaw ?? 0.0)*150 + 150)
     }
     
     var goalText: String {
