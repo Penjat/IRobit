@@ -60,6 +60,17 @@ class RobitBrain: ObservableObject {
             } else {
                 movementOutput = diff > 0 ? .LEFT : .RIGHT
             }
+        case .wait(relativeTime: let relativeTime, specificTime: let specificTime):
+            if movementOutput != .STOPPED {
+                movementOutput = .STOPPED
+            }
+            guard let specificTime = specificTime else {
+                goal = .wait(relativeTime: relativeTime, specificTime: Date.now.addingTimeInterval(relativeTime).timeIntervalSince1970)
+                return
+            }
+            if specificTime < Date.now.timeIntervalSince1970 {
+                completedGoal()
+            }
         }
     }
     

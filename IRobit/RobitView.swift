@@ -54,7 +54,7 @@ struct RobitView: View {
                         brain.commandInput.send(.faceSouth)
                     }
                     Button("West") {
-                        brain.commandInput.send(.sequence(goals: [.face(angle: 0.0),.face(angle: Double.pi), .face(angle: 1.1), .face(angle: -2.4)]))
+                        brain.commandInput.send(.sequence(goals: [.face(angle: 0.0),.wait(relativeTime: 2.0, specificTime: nil),.face(angle: Double.pi),.wait(relativeTime: 5.0, specificTime: nil), .face(angle: 1.1), .face(angle: -2.4)]))
                     }
                 }
                 
@@ -101,6 +101,8 @@ struct RobitView: View {
             return "idle"
         case .face(angle: let angle):
             return "face \(angle)"
+        case .wait(relativeTime: let relativeTime, specificTime: let specificTime):
+            return "wait for \(relativeTime)"
         }
     }
 }
