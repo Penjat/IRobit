@@ -54,7 +54,7 @@ struct RobitView: View {
                         brain.commandInput.send(.faceSouth)
                     }
                     Button("West") {
-                        brain.commandInput.send(.faceWest)
+                        brain.commandInput.send(.sequence(goals: [.face(angle: 0.0),.face(angle: Double.pi), .face(angle: 1.1), .face(angle: -2.4)]))
                     }
                 }
                 

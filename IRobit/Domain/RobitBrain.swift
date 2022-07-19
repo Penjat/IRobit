@@ -4,6 +4,7 @@ import Combine
 class RobitBrain: ObservableObject {
     let commandInput = PassthroughSubject<RobitCommand, Never>()
     let sensorInput = PassthroughSubject<SensorInput, Never>()
+    var goalSequence: GoalSequence?
     
     @Published var goal = RobitGoal.idle
     @Published var movementOutput = RobitMovementOutput(motor1Speed: 0.0, motor2Speed: 0.0)
@@ -33,6 +34,9 @@ class RobitBrain: ObservableObject {
             goal = .face(angle: Double.pi)
         case .faceWest:
             goal = .face(angle: Double.pi/(-2))
+        case .sequence(goals: let goals):
+            goalSequence = GoalSequence(goals: goals, index: 0)
+            goal = goals[0]
         }
     }
     
@@ -44,8 +48,7 @@ class RobitBrain: ObservableObject {
             }
         case .face(angle: let angle):
             if abs( sensorInput.yaw - angle) < 0.15 {
-                movementOutput = RobitMovementOutput.STOPPED
-                goal = .idle
+                completedGoal()
                 return
             }
             let diff = angle - sensorInput.yaw
@@ -58,5 +61,16 @@ class RobitBrain: ObservableObject {
                 movementOutput = diff > 0 ? .LEFT : .RIGHT
             }
         }
+    }
+    
+    func completedGoal() {
+        guard let goalSequence = goalSequence, goalSequence.index+1 < goalSequence.goals.count else {
+            goalSequence = nil
+            movementOutput = RobitMovementOutput.STOPPED
+            goal = .idle
+            return
+        }
+        self.goalSequence?.index += 1
+        self.goal = goalSequence.nextGoal()
     }
 }

@@ -6,4 +6,5 @@ enum RobitCommand {
     case faceEast
     case faceSouth
     case faceWest
+    case sequence(goals: [RobitGoal])
 }

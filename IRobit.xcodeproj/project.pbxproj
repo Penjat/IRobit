@@ -30,6 +30,7 @@
 		1AD0F3A82886473700E710BD /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F3A72886473700E710BD /* Intents.intentdefinition */; };
 		1AD0F3A92886479D00E710BD /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F39E288646DF00E710BD /* IntentHandler.swift */; };
 		1AD0F3AF2886658A00E710BD /* BehaviourInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F3AE2886658A00E710BD /* BehaviourInteractor.swift */; };
+		1AD0F3B12886F9E700E710BD /* GoalSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F3B02886F9E700E710BD /* GoalSequence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		1AD0F3A0288646DF00E710BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AD0F3A72886473700E710BD /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
 		1AD0F3AE2886658A00E710BD /* BehaviourInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourInteractor.swift; sourceTree = "<group>"; };
+		1AD0F3B02886F9E700E710BD /* GoalSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSequence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */,
 				1A53B0852884933E0025E2E3 /* RobitCommand.swift */,
 				1A53B08D2884A7150025E2E3 /* SensorInput.swift */,
+				1AD0F3B02886F9E700E710BD /* GoalSequence.swift */,
 			);
 			name = IO;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				1A53B0912884A9BA0025E2E3 /* RobitGoal.swift in Sources */,
 				1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */,
 				1A53B08E2884A7150025E2E3 /* SensorInput.swift in Sources */,
+				1AD0F3B12886F9E700E710BD /* GoalSequence.swift in Sources */,
 				1A53B0AF2885AE7B0025E2E3 /* SpeechService.swift in Sources */,
 				1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */,
 				1AD0F3A92886479D00E710BD /* IntentHandler.swift in Sources */,
