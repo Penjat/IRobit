@@ -3,8 +3,8 @@ import Combine
 
 class BehaviourInteractor: ObservableObject {
     @Published var cmdOutput: RobitCommand?
-    func reciveIntent() {
-        print("interactor recievedc intent")
-        cmdOutput = .faceNorth
+    func recive(command: RobitCommand) {
+        print("interactor recievedc command")
+        cmdOutput = command
     }
 }

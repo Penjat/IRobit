@@ -59,13 +59,19 @@ struct RobitView: View {
                 }
                 
                 Text(bodyInteractor.connectedBody != nil ? "connected" : "not-connected")
-//                Text("speech service: \(speechService.transcript)")
             }
             
         }
         .onAppear {
 //            speechService.reset()
 //            speechService.transcribe()
+            //            speechService.$transcript.sink { transcript in
+            //                if transcript.contains("north") {
+            //                    brain.commandInput.send(.faceNorth)
+            //                    speechService.transcript = ""
+            //                    print("said north")
+            //                }
+            //            }.store(in: &bag)
             
             sensorService.positionPublisher.sink { input in
                 sensorInput = input
@@ -81,13 +87,6 @@ struct RobitView: View {
             behaviourInteractor.$cmdOutput.compactMap({$0}).sink { cmd in
                 brain.commandInput.send(cmd)
             }.store(in: &bag)
-//            speechService.$transcript.sink { transcript in
-//                if transcript.contains("north") {
-//                    brain.commandInput.send(.faceNorth)
-//                    speechService.transcript = ""
-//                    print("said north")
-//                }
-//            }.store(in: &bag)
         }
     }
     
