@@ -12,45 +12,51 @@ class RobitBrain: ObservableObject {
     
     init() {
         commandInput.sink { [weak self] command in
-            switch command {
-            case .stop:
-                self?.movementOutput = RobitMovementOutput(motor1Speed: 0.0, motor2Speed: 0.0)
-                self?.goal = .idle
-            case .faceNorth:
-                self?.goal = .face(angle: 0.0)
-            case .faceEast:
-                self?.goal = .face(angle: Double.pi/2)
-            case .faceSouth:
-                self?.goal = .face(angle: Double.pi)
-            case .faceWest:
-                self?.goal = .face(angle: Double.pi/(-2))
-            }
+            self?.handleCommandInput(command: command)
         }.store(in: &bag)
         
         sensorInput.sink { [weak self] sensorInput in
-            switch self?.goal {
-            case .idle:
-                if self?.movementOutput != .STOPPED {
-                    self?.movementOutput = .STOPPED
-                }
-            case .face(angle: let angle):
-                if abs( sensorInput.yaw - angle) < 0.15 {
-                    self?.movementOutput = RobitMovementOutput.STOPPED
-                    self?.goal = .idle
-                    return
-                }
-                let diff = angle - sensorInput.yaw
-                if  diff > Double.pi  {
-                    self?.movementOutput = .RIGHT
-                    
-                } else if diff < -Double.pi {
-                    self?.movementOutput = .LEFT
-                } else {
-                    self?.movementOutput = diff > 0 ? .LEFT : .RIGHT
-                }
-            case .none:
-                break
-            }
+            self?.handleSensorInput(sensorInput: sensorInput)
         }.store(in: &bag)
+    }
+    
+    func handleCommandInput(command: RobitCommand) {
+        switch command {
+        case .stop:
+            movementOutput = RobitMovementOutput(motor1Speed: 0.0, motor2Speed: 0.0)
+            goal = .idle
+        case .faceNorth:
+            goal = .face(angle: 0.0)
+        case .faceEast:
+            goal = .face(angle: Double.pi/2)
+        case .faceSouth:
+            goal = .face(angle: Double.pi)
+        case .faceWest:
+            goal = .face(angle: Double.pi/(-2))
+        }
+    }
+    
+    func handleSensorInput(sensorInput: SensorInput) {
+        switch goal {
+        case .idle:
+            if movementOutput != .STOPPED {
+                movementOutput = .STOPPED
+            }
+        case .face(angle: let angle):
+            if abs( sensorInput.yaw - angle) < 0.15 {
+                movementOutput = RobitMovementOutput.STOPPED
+                goal = .idle
+                return
+            }
+            let diff = angle - sensorInput.yaw
+            if  diff > Double.pi  {
+                movementOutput = .RIGHT
+                
+            } else if diff < -Double.pi {
+                movementOutput = .LEFT
+            } else {
+                movementOutput = diff > 0 ? .LEFT : .RIGHT
+            }
+        }
     }
 }
