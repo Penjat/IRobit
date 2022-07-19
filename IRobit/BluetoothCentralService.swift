@@ -1,7 +1,7 @@
 import Combine
 import CoreBluetooth
 
-final class BluetoothService: NSObject, CBPeripheralDelegate {
+final class BluetoothCentralService: NSObject, CBPeripheralDelegate {
     private var centralManager: CBCentralManager!
     var eventSubject: PassthroughSubject<CentralManagerEvent, Never> = .init()
     
@@ -31,7 +31,7 @@ enum CentralManagerEvent {
     case DidDisconnect(central: CBCentralManager, peripheral: CBPeripheral, error: Error?)
 }
 
-extension BluetoothService: CBCentralManagerDelegate {
+extension BluetoothCentralService: CBCentralManagerDelegate {
     
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         eventSubject.send(.DidUpdateState(state: central.state))

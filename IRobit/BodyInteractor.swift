@@ -14,7 +14,7 @@ class BodyInteractor: ObservableObject {
     
     @Published var motorSpeed = (motor1Speed: 0, motor2Speed: 0)
     
-    lazy var manager: BluetoothService = BluetoothService()
+    lazy var manager: BluetoothCentralService = BluetoothCentralService()
     private lazy var bag: Set<AnyCancellable> = .init()
     @Published var connectedBody: CBPeripheral?
     
@@ -40,7 +40,7 @@ class BodyInteractor: ObservableObject {
                 self.connectedBody?.discoverServices(nil)
             case .DidDiscoverService(peripheral: let peripheral, error: let error):
                 if ((error) != nil) {
-                    print("Error discovering services: \(error!.localizedDescription)")
+//                    print("Error discovering services: \(error!.localizedDescription)")
                     return
                 }
                 guard let services = peripheral.services else {
@@ -50,15 +50,15 @@ class BodyInteractor: ObservableObject {
                 for service in services {
                     peripheral.discoverCharacteristics(nil, for: service)
                 }
-                print("Discovered Services: \(services)")
+//                print("Discovered Services: \(services)")
             case .DidDiscoverCharacteristic(peripheral: _, service: let service, error: let error):
                 guard let characteristics = service.characteristics else {
                     return
                 }
                 for characteristic in characteristics {
-                    print("\(characteristic)")
+//                    print("\(characteristic)")
                     self.txCharacteristic = characteristic
-                    print("TX Characteristic: \(self.txCharacteristic.uuid)")
+//                    print("TX Characteristic: \(self.txCharacteristic.uuid)")
                 }
                 
             case .DidDisconnect(central: let central, peripheral: let peripheral, error: let error):

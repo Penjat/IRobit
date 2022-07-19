@@ -14,14 +14,22 @@
 		1A53B08E2884A7150025E2E3 /* SensorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B08D2884A7150025E2E3 /* SensorInput.swift */; };
 		1A53B0912884A9BA0025E2E3 /* RobitGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0902884A9B90025E2E3 /* RobitGoal.swift */; };
 		1A53B0932884C0970025E2E3 /* RobitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0922884C0970025E2E3 /* RobitView.swift */; };
-		1A53B0952884FD850025E2E3 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0942884FD850025E2E3 /* BluetoothService.swift */; };
+		1A53B0952884FD850025E2E3 /* BluetoothCentralService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0942884FD850025E2E3 /* BluetoothCentralService.swift */; };
 		1A53B0972884FE940025E2E3 /* BodyInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0962884FE940025E2E3 /* BodyInteractor.swift */; };
+		1A53B0AD2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0AC2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition */; };
+		1A53B0AF2885AE7B0025E2E3 /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0AE2885AE7B0025E2E3 /* SpeechService.swift */; };
+		1A53B0B12885BA6F0025E2E3 /* RemoteCommandInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0B02885BA6F0025E2E3 /* RemoteCommandInteractor.swift */; };
 		1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106A2884832300F33F81 /* IRobitApp.swift */; };
 		1A99106D2884832300F33F81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99106C2884832300F33F81 /* ContentView.swift */; };
 		1A99106F2884832B00F33F81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A99106E2884832B00F33F81 /* Assets.xcassets */; };
 		1A9910722884832B00F33F81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A9910712884832B00F33F81 /* Preview Assets.xcassets */; };
 		1A99107C2884832B00F33F81 /* IRobitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A99107B2884832B00F33F81 /* IRobitTests.swift */; };
 		1A99109A2884876000F33F81 /* RobitBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9910992884876000F33F81 /* RobitBrain.swift */; };
+		1AD0F39C288646DF00E710BD /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A53B09F288511370025E2E3 /* Intents.framework */; };
+		1AD0F3A3288646DF00E710BD /* FaceDirection.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1AD0F39B288646DF00E710BD /* FaceDirection.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1AD0F3A82886473700E710BD /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F3A72886473700E710BD /* Intents.intentdefinition */; };
+		1AD0F3A92886479D00E710BD /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F39E288646DF00E710BD /* IntentHandler.swift */; };
+		1AD0F3AF2886658A00E710BD /* BehaviourInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD0F3AE2886658A00E710BD /* BehaviourInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +40,28 @@
 			remoteGlobalIDString = 1A9910662884832300F33F81;
 			remoteInfo = IRobit;
 		};
+		1AD0F3A1288646DF00E710BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A99105F2884832300F33F81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1AD0F39A288646DF00E710BD;
+			remoteInfo = FaceDirection;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A53B0AB288511370025E2E3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1AD0F3A3288646DF00E710BD /* FaceDirection.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A53B0852884933E0025E2E3 /* RobitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitCommand.swift; sourceTree = "<group>"; };
@@ -42,9 +71,13 @@
 		1A53B08D2884A7150025E2E3 /* SensorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorInput.swift; sourceTree = "<group>"; };
 		1A53B0902884A9B90025E2E3 /* RobitGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitGoal.swift; sourceTree = "<group>"; };
 		1A53B0922884C0970025E2E3 /* RobitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitView.swift; sourceTree = "<group>"; };
-		1A53B0942884FD850025E2E3 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		1A53B0942884FD850025E2E3 /* BluetoothCentralService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCentralService.swift; sourceTree = "<group>"; };
 		1A53B0962884FE940025E2E3 /* BodyInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyInteractor.swift; sourceTree = "<group>"; };
 		1A53B098288504460025E2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1A53B09F288511370025E2E3 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		1A53B0AC2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TurnDirectionIntent.intentdefinition; sourceTree = "<group>"; };
+		1A53B0AE2885AE7B0025E2E3 /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		1A53B0B02885BA6F0025E2E3 /* RemoteCommandInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteCommandInteractor.swift; sourceTree = "<group>"; };
 		1A9910672884832300F33F81 /* IRobit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IRobit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A99106A2884832300F33F81 /* IRobitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRobitApp.swift; sourceTree = "<group>"; };
 		1A99106C2884832300F33F81 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +86,12 @@
 		1A9910772884832B00F33F81 /* IRobitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRobitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A99107B2884832B00F33F81 /* IRobitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRobitTests.swift; sourceTree = "<group>"; };
 		1A9910992884876000F33F81 /* RobitBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitBrain.swift; sourceTree = "<group>"; };
+		1AD0F3962885CF5A00E710BD /* IRobit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IRobit.entitlements; sourceTree = "<group>"; };
+		1AD0F39B288646DF00E710BD /* FaceDirection.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FaceDirection.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AD0F39E288646DF00E710BD /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		1AD0F3A0288646DF00E710BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1AD0F3A72886473700E710BD /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		1AD0F3AE2886658A00E710BD /* BehaviourInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +109,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AD0F398288646DF00E710BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AD0F39C288646DF00E710BD /* Intents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,11 +130,21 @@
 			name = IO;
 			sourceTree = "<group>";
 		};
+		1A53B09E288511370025E2E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A53B09F288511370025E2E3 /* Intents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		1A99105E2884832300F33F81 = {
 			isa = PBXGroup;
 			children = (
 				1A9910692884832300F33F81 /* IRobit */,
 				1A99107A2884832B00F33F81 /* IRobitTests */,
+				1AD0F39D288646DF00E710BD /* FaceDirection */,
+				1A53B09E288511370025E2E3 /* Frameworks */,
 				1A9910682884832300F33F81 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +154,7 @@
 			children = (
 				1A9910672884832300F33F81 /* IRobit.app */,
 				1A9910772884832B00F33F81 /* IRobitTests.xctest */,
+				1AD0F39B288646DF00E710BD /* FaceDirection.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +162,7 @@
 		1A9910692884832300F33F81 /* IRobit */ = {
 			isa = PBXGroup;
 			children = (
+				1AD0F3962885CF5A00E710BD /* IRobit.entitlements */,
 				1A53B098288504460025E2E3 /* Info.plist */,
 				1A9910982884843E00F33F81 /* Apllication */,
 				1A991094288483A500F33F81 /* Domain */,
@@ -111,6 +170,7 @@
 				1A991095288483E300F33F81 /* Interactor */,
 				1A9910972884841B00F33F81 /* UI */,
 				1A99106E2884832B00F33F81 /* Assets.xcassets */,
+				1AD0F3A72886473700E710BD /* Intents.intentdefinition */,
 				1A9910702884832B00F33F81 /* Preview Content */,
 			);
 			path = IRobit;
@@ -146,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				1A53B0962884FE940025E2E3 /* BodyInteractor.swift */,
+				1A53B0B02885BA6F0025E2E3 /* RemoteCommandInteractor.swift */,
+				1AD0F3AE2886658A00E710BD /* BehaviourInteractor.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -155,7 +217,8 @@
 			children = (
 				1A53B0892884975B0025E2E3 /* SensorService.swift */,
 				1A53B08B2884A5080025E2E3 /* VirtualSensorService.swift */,
-				1A53B0942884FD850025E2E3 /* BluetoothService.swift */,
+				1A53B0942884FD850025E2E3 /* BluetoothCentralService.swift */,
+				1A53B0AE2885AE7B0025E2E3 /* SpeechService.swift */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -173,8 +236,18 @@
 			isa = PBXGroup;
 			children = (
 				1A99106A2884832300F33F81 /* IRobitApp.swift */,
+				1A53B0AC2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition */,
 			);
 			name = Apllication;
+			sourceTree = "<group>";
+		};
+		1AD0F39D288646DF00E710BD /* FaceDirection */ = {
+			isa = PBXGroup;
+			children = (
+				1AD0F39E288646DF00E710BD /* IntentHandler.swift */,
+				1AD0F3A0288646DF00E710BD /* Info.plist */,
+			);
+			path = FaceDirection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,10 +260,12 @@
 				1A9910632884832300F33F81 /* Sources */,
 				1A9910642884832300F33F81 /* Frameworks */,
 				1A9910652884832300F33F81 /* Resources */,
+				1A53B0AB288511370025E2E3 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1AD0F3A2288646DF00E710BD /* PBXTargetDependency */,
 			);
 			name = IRobit;
 			productName = IRobit;
@@ -215,6 +290,23 @@
 			productReference = 1A9910772884832B00F33F81 /* IRobitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1AD0F39A288646DF00E710BD /* FaceDirection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD0F3A6288646DF00E710BD /* Build configuration list for PBXNativeTarget "FaceDirection" */;
+			buildPhases = (
+				1AD0F397288646DF00E710BD /* Sources */,
+				1AD0F398288646DF00E710BD /* Frameworks */,
+				1AD0F399288646DF00E710BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceDirection;
+			productName = FaceDirection;
+			productReference = 1AD0F39B288646DF00E710BD /* FaceDirection.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,6 +323,9 @@
 					1A9910762884832B00F33F81 = {
 						CreatedOnToolsVersion = 13.3.1;
 						TestTargetID = 1A9910662884832300F33F81;
+					};
+					1AD0F39A288646DF00E710BD = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -249,6 +344,7 @@
 			targets = (
 				1A9910662884832300F33F81 /* IRobit */,
 				1A9910762884832B00F33F81 /* IRobitTests */,
+				1AD0F39A288646DF00E710BD /* FaceDirection */,
 			);
 		};
 /* End PBXProject section */
@@ -270,6 +366,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AD0F399288646DF00E710BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -277,17 +380,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A53B0952884FD850025E2E3 /* BluetoothService.swift in Sources */,
+				1A53B0952884FD850025E2E3 /* BluetoothCentralService.swift in Sources */,
 				1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */,
 				1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */,
+				1A53B0AD2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition in Sources */,
 				1A99109A2884876000F33F81 /* RobitBrain.swift in Sources */,
 				1A53B0972884FE940025E2E3 /* BodyInteractor.swift in Sources */,
+				1AD0F3A82886473700E710BD /* Intents.intentdefinition in Sources */,
+				1AD0F3AF2886658A00E710BD /* BehaviourInteractor.swift in Sources */,
 				1A53B08C2884A5080025E2E3 /* VirtualSensorService.swift in Sources */,
+				1A53B0B12885BA6F0025E2E3 /* RemoteCommandInteractor.swift in Sources */,
 				1A99106D2884832300F33F81 /* ContentView.swift in Sources */,
 				1A53B0912884A9BA0025E2E3 /* RobitGoal.swift in Sources */,
 				1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */,
 				1A53B08E2884A7150025E2E3 /* SensorInput.swift in Sources */,
+				1A53B0AF2885AE7B0025E2E3 /* SpeechService.swift in Sources */,
 				1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */,
+				1AD0F3A92886479D00E710BD /* IntentHandler.swift in Sources */,
 				1A53B0932884C0970025E2E3 /* RobitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +409,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1AD0F397288646DF00E710BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -307,6 +423,11 @@
 			isa = PBXTargetDependency;
 			target = 1A9910662884832300F33F81 /* IRobit */;
 			targetProxy = 1A9910782884832B00F33F81 /* PBXContainerItemProxy */;
+		};
+		1AD0F3A2288646DF00E710BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1AD0F39A288646DF00E710BD /* FaceDirection */;
+			targetProxy = 1AD0F3A1288646DF00E710BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -430,19 +551,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IRobit/IRobit.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IRobit/Preview Content\"";
-				DEVELOPMENT_TEAM = 8PD973N6JY;
+				DEVELOPMENT_TEAM = L688AU9RCV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IRobit/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth used to connect to Siri Body.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used to control robit.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Use Siri to control body.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Used to talk to SiriBody.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,8 +577,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobit;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.MyRobit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,19 +591,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IRobit/IRobit.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IRobit/Preview Content\"";
-				DEVELOPMENT_TEAM = 8PD973N6JY;
+				DEVELOPMENT_TEAM = L688AU9RCV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IRobit/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth used to connect to Siri Body.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used to control robit.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
+				INFOPLIST_KEY_NSSiriUsageDescription = "Use Siri to control body.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Used to talk to SiriBody.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -483,8 +617,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Penjat.IRobit;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.MyRobit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -498,7 +633,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8PD973N6JY;
+				DEVELOPMENT_TEAM = L688AU9RCV;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
@@ -518,7 +653,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8PD973N6JY;
+				DEVELOPMENT_TEAM = L688AU9RCV;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				MARKETING_VERSION = 1.0;
@@ -528,6 +663,60 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IRobit.app/IRobit";
+			};
+			name = Release;
+		};
+		1AD0F3A4288646DF00E710BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FaceDirection/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FaceDirection;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.MyRobit.FaceDirection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1AD0F3A5288646DF00E710BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L688AU9RCV;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FaceDirection/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FaceDirection;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Penjat.MyRobit.FaceDirection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -557,6 +746,15 @@
 			buildConfigurations = (
 				1A99108F2884832B00F33F81 /* Debug */,
 				1A9910902884832B00F33F81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1AD0F3A6288646DF00E710BD /* Build configuration list for PBXNativeTarget "FaceDirection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1AD0F3A4288646DF00E710BD /* Debug */,
+				1AD0F3A5288646DF00E710BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

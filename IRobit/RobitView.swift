@@ -2,10 +2,11 @@ import SwiftUI
 import Combine
 
 struct RobitView: View {
+    @EnvironmentObject var behaviourInteractor: BehaviourInteractor
     @StateObject var brain = RobitBrain()
     @StateObject var sensorService = PhoneSensorService()
     @StateObject var bodyInteractor = BodyInteractor()
-    
+//    @StateObject var speechService = SpeechService()
     @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
     var body: some View {
@@ -40,7 +41,7 @@ struct RobitView: View {
                 Text("\(goalText)")
                     .padding()
                 
-                Text("\(sensorInput?.yaw ?? 0.0)")
+                Text(String(format: "%.2f", sensorInput?.yaw ?? 0.00))
                     .padding()
                 HStack {
                     Button("North") {
@@ -58,14 +59,17 @@ struct RobitView: View {
                 }
                 
                 Text(bodyInteractor.connectedBody != nil ? "connected" : "not-connected")
+//                Text("speech service: \(speechService.transcript)")
             }
             
         }
         .onAppear {
+//            speechService.reset()
+//            speechService.transcribe()
+            
             sensorService.positionPublisher.sink { input in
                 sensorInput = input
                 brain.sensorInput.send(input)
-                print(linePosition)
             }.store(in: &bag)
             
             brain.$movementOutput.sink { output in
@@ -73,6 +77,17 @@ struct RobitView: View {
             }.store(in: &bag)
             
             bodyInteractor.start()
+            
+            behaviourInteractor.$cmdOutput.compactMap({$0}).sink { cmd in
+                brain.commandInput.send(cmd)
+            }.store(in: &bag)
+//            speechService.$transcript.sink { transcript in
+//                if transcript.contains("north") {
+//                    brain.commandInput.send(.faceNorth)
+//                    speechService.transcript = ""
+//                    print("said north")
+//                }
+//            }.store(in: &bag)
         }
     }
     
