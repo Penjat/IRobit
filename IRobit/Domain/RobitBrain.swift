@@ -82,6 +82,10 @@ class RobitBrain: ObservableObject {
             if specificTime < Date.now.timeIntervalSince1970 {
                 completedGoal()
             }
+        case .driveAt(motor1Speed: let motor1Speed, motor2Speed: let motor2Speed):
+            if movementOutput != RobitMovementOutput(motor1Speed: motor1Speed, motor2Speed: motor2Speed) {
+                movementOutput = RobitMovementOutput(motor1Speed: motor1Speed, motor2Speed: motor2Speed)
+            }
         }
     }
     

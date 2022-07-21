@@ -125,6 +125,8 @@ struct RobitView: View {
             return "wait for \(relativeTime)"
         case .driveFor(relativeTime: let relativeTime, specificTime: let specificTime):
             return "driving..."
+        case .driveAt(motor1Speed: let motor1Speed, motor2Speed: let motor2Speed):
+            return "driving..."
         }
     }
 }

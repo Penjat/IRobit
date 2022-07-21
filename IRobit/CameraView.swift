@@ -4,7 +4,12 @@ import Combine
 
 struct CameraView: View {
     @StateObject var videoService = VideoService()
+    @StateObject var brain = RobitBrain()
+    @StateObject var sensorService = PhoneSensorService()
+    @StateObject var bodyInteractor = BodyInteractor()
     @StateObject var faceDectectionService = FaceDetectionSerice()
+    
+    @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
     @State var box: CGRect?
     var body: some View {
@@ -33,7 +38,36 @@ struct CameraView: View {
             
             faceDectectionService.$faceObservations.sink { observations in
                 self.box = observations?.first?.boundingBox ?? nil
+                
+                guard let box = observations?.first?.boundingBox else {
+                    brain.goal = .idle
+                    return
+                }
+                let center = box.minX + box.width/2.0
+                if center > 0.65 {
+                    brain.goal = .driveAt(motor1Speed: -0.4, motor2Speed: 0.4)
+                    return
+                }
+                
+                if center < 0.35 {
+                    brain.goal = .driveAt(motor1Speed: 0.4, motor2Speed: -0.4)
+                    return
+                }
+                brain.goal = .idle
             }.store(in: &bag)
+            
+            
+            
+            sensorService.positionPublisher.sink { input in
+                sensorInput = input
+                brain.sensorInput.send(input)
+            }.store(in: &bag)
+            
+            brain.$movementOutput.sink { output in
+                bodyInteractor.toBody.send(output)
+            }.store(in: &bag)
+            
+            bodyInteractor.start()
         }
     }
     
