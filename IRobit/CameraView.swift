@@ -45,12 +45,12 @@ struct CameraView: View {
                 }
                 let center = box.minX + box.width/2.0
                 if center > 0.65 {
-                    brain.goal = .driveAt(motor1Speed: -0.4, motor2Speed: 0.4)
+                    brain.goal = .driveAt(motor1Speed: -0.4, motor2Speed: 0.5)
                     return
                 }
                 
                 if center < 0.35 {
-                    brain.goal = .driveAt(motor1Speed: 0.4, motor2Speed: -0.4)
+                    brain.goal = .driveAt(motor1Speed: 0.5, motor2Speed: -0.4)
                     return
                 }
                 brain.goal = .idle
