@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A18371D2888417A008342A3 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18371C2888417A008342A3 /* CameraView.swift */; };
+		1A1837202888431D008342A3 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18371F2888431D008342A3 /* VideoCapture.swift */; };
+		1A18372228884339008342A3 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A18372128884339008342A3 /* VideoService.swift */; };
+		1A183724288844E6008342A3 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A183723288844E6008342A3 /* CameraPreviewView.swift */; };
+		1A183726288848FA008342A3 /* FaceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A183725288848FA008342A3 /* FaceDetectionService.swift */; };
 		1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0852884933E0025E2E3 /* RobitCommand.swift */; };
 		1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */; };
 		1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A53B0892884975B0025E2E3 /* SensorService.swift */; };
@@ -65,6 +70,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A18371C2888417A008342A3 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		1A18371F2888431D008342A3 /* VideoCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		1A18372128884339008342A3 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		1A183723288844E6008342A3 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		1A183725288848FA008342A3 /* FaceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionService.swift; sourceTree = "<group>"; };
 		1A53B0852884933E0025E2E3 /* RobitCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitCommand.swift; sourceTree = "<group>"; };
 		1A53B087288493F30025E2E3 /* RobitMovementOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobitMovementOutput.swift; sourceTree = "<group>"; };
 		1A53B0892884975B0025E2E3 /* SensorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorService.swift; sourceTree = "<group>"; };
@@ -122,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A18371E2888430B008342A3 /* VideoCapture */ = {
+			isa = PBXGroup;
+			children = (
+				1A18371F2888431D008342A3 /* VideoCapture.swift */,
+				1A18372128884339008342A3 /* VideoService.swift */,
+			);
+			name = VideoCapture;
+			sourceTree = "<group>";
+		};
 		1A53B08F2884A8840025E2E3 /* IO */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +241,8 @@
 				1A53B08B2884A5080025E2E3 /* VirtualSensorService.swift */,
 				1A53B0942884FD850025E2E3 /* BluetoothCentralService.swift */,
 				1A53B0AE2885AE7B0025E2E3 /* SpeechService.swift */,
+				1A183725288848FA008342A3 /* FaceDetectionService.swift */,
+				1A18371E2888430B008342A3 /* VideoCapture */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -231,6 +252,8 @@
 			children = (
 				1A99106C2884832300F33F81 /* ContentView.swift */,
 				1A53B0922884C0970025E2E3 /* RobitView.swift */,
+				1A18371C2888417A008342A3 /* CameraView.swift */,
+				1A183723288844E6008342A3 /* CameraPreviewView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -384,8 +407,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A53B0952884FD850025E2E3 /* BluetoothCentralService.swift in Sources */,
+				1A1837202888431D008342A3 /* VideoCapture.swift in Sources */,
 				1A53B0862884933E0025E2E3 /* RobitCommand.swift in Sources */,
 				1A53B088288493F30025E2E3 /* RobitMovementOutput.swift in Sources */,
+				1A18371D2888417A008342A3 /* CameraView.swift in Sources */,
 				1A53B0AD2885116A0025E2E3 /* TurnDirectionIntent.intentdefinition in Sources */,
 				1A99109A2884876000F33F81 /* RobitBrain.swift in Sources */,
 				1A53B0972884FE940025E2E3 /* BodyInteractor.swift in Sources */,
@@ -393,11 +418,14 @@
 				1AD0F3AF2886658A00E710BD /* BehaviourInteractor.swift in Sources */,
 				1A53B08C2884A5080025E2E3 /* VirtualSensorService.swift in Sources */,
 				1A53B0B12885BA6F0025E2E3 /* RemoteCommandInteractor.swift in Sources */,
+				1A183726288848FA008342A3 /* FaceDetectionService.swift in Sources */,
 				1A99106D2884832300F33F81 /* ContentView.swift in Sources */,
 				1A53B0912884A9BA0025E2E3 /* RobitGoal.swift in Sources */,
 				1A99106B2884832300F33F81 /* IRobitApp.swift in Sources */,
 				1A53B08E2884A7150025E2E3 /* SensorInput.swift in Sources */,
 				1AD0F3B12886F9E700E710BD /* GoalSequence.swift in Sources */,
+				1A18372228884339008342A3 /* VideoService.swift in Sources */,
+				1A183724288844E6008342A3 /* CameraPreviewView.swift in Sources */,
 				1A53B0AF2885AE7B0025E2E3 /* SpeechService.swift in Sources */,
 				1A53B08A2884975B0025E2E3 /* SensorService.swift in Sources */,
 				1AD0F3A92886479D00E710BD /* IntentHandler.swift in Sources */,
@@ -566,6 +594,7 @@
 				INFOPLIST_FILE = IRobit/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth used to connect to Siri Body.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to folloe users movements.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used to control robit.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Use Siri to control body.";
@@ -606,6 +635,7 @@
 				INFOPLIST_FILE = IRobit/Info.plist;
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
 				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Bluetooth used to connect to Siri Body.";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Used to folloe users movements.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Used to control robit.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "Device Motion used to orient Robit";
 				INFOPLIST_KEY_NSSiriUsageDescription = "Use Siri to control body.";

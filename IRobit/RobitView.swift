@@ -6,6 +6,7 @@ struct RobitView: View {
     @StateObject var brain = RobitBrain()
     @StateObject var sensorService = PhoneSensorService()
     @StateObject var bodyInteractor = BodyInteractor()
+    @StateObject var faceDectectionService = FaceDetectionSerice()
 //    @StateObject var speechService = SpeechService()
     @State var sensorInput: SensorInput?
     @State var bag = Set<AnyCancellable>()
@@ -54,7 +55,24 @@ struct RobitView: View {
                         brain.commandInput.send(.faceSouth)
                     }
                     Button("West") {
-                        brain.commandInput.send(.sequence(goals: [.face(angle: 0.0),.wait(relativeTime: 2.0, specificTime: nil),.face(angle: Double.pi),.wait(relativeTime: 5.0, specificTime: nil), .face(angle: 1.1), .face(angle: -2.4)]))
+                        brain.commandInput.send(.sequence(goals: [
+                            .face(angle: 0.0),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .driveFor(relativeTime: 2.0, specificTime: nil),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .face(angle: Double.pi/2),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .driveFor(relativeTime: 2.0, specificTime: nil),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .face(angle: Double.pi),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .driveFor(relativeTime: 2.0, specificTime: nil),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .face(angle: -(Double.pi/2) ),
+                            .wait(relativeTime: 1.0, specificTime: nil),
+                            .driveFor(relativeTime: 2.0, specificTime: nil),
+                            .wait(relativeTime: 1.0, specificTime: nil)
+                        ]))
                     }
                 }
                 
@@ -87,6 +105,8 @@ struct RobitView: View {
             behaviourInteractor.$cmdOutput.compactMap({$0}).sink { cmd in
                 brain.commandInput.send(cmd)
             }.store(in: &bag)
+            
+            
         }
     }
     
@@ -103,6 +123,8 @@ struct RobitView: View {
             return "face \(angle)"
         case .wait(relativeTime: let relativeTime, specificTime: let specificTime):
             return "wait for \(relativeTime)"
+        case .driveFor(relativeTime: let relativeTime, specificTime: let specificTime):
+            return "driving..."
         }
     }
 }

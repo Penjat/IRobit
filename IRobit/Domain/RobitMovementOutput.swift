@@ -7,4 +7,5 @@ struct RobitMovementOutput: Equatable {
     static let STOPPED = RobitMovementOutput(motor1Speed: 0.0, motor2Speed: 0.0)
     static let LEFT = RobitMovementOutput(motor1Speed: -0.5, motor2Speed: 0.5)
     static let RIGHT = RobitMovementOutput(motor1Speed: 0.5, motor2Speed: -0.5)
+    static let FORWARD = RobitMovementOutput(motor1Speed: 0.5, motor2Speed: 0.5)
 }

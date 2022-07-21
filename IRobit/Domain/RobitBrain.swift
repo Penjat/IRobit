@@ -35,7 +35,7 @@ class RobitBrain: ObservableObject {
         case .faceWest:
             goal = .face(angle: Double.pi/(-2))
         case .sequence(goals: let goals):
-            goalSequence = GoalSequence(goals: goals, index: 0)
+            goalSequence = GoalSequence(goals: goals, index: 0, repeating: true)
             goal = goals[0]
         }
     }
@@ -71,14 +71,29 @@ class RobitBrain: ObservableObject {
             if specificTime < Date.now.timeIntervalSince1970 {
                 completedGoal()
             }
+        case .driveFor(relativeTime: let relativeTime, specificTime: let specificTime):
+            if movementOutput != .FORWARD {
+                movementOutput = .FORWARD
+            }
+            guard let specificTime = specificTime else {
+                goal = .driveFor(relativeTime: relativeTime, specificTime: Date.now.addingTimeInterval(relativeTime).timeIntervalSince1970)
+                return
+            }
+            if specificTime < Date.now.timeIntervalSince1970 {
+                completedGoal()
+            }
         }
     }
     
     func completedGoal() {
-        guard let goalSequence = goalSequence, goalSequence.index+1 < goalSequence.goals.count else {
-            goalSequence = nil
-            movementOutput = RobitMovementOutput.STOPPED
-            goal = .idle
+        guard let goalSequence = goalSequence, goalSequence.index < goalSequence.goals.count else {
+            if goalSequence?.repeating == true {
+                self.goalSequence?.index = 0
+            } else {
+                goalSequence = nil
+                movementOutput = RobitMovementOutput.STOPPED
+                goal = .idle
+            }
             return
         }
         self.goalSequence?.index += 1
