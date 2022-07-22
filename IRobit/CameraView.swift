@@ -14,7 +14,7 @@ struct CameraView: View {
     @State var box: CGRect?
     var body: some View {
         ZStack {
-            CameraPreviewView(session: videoService.videoCapture.captureSession)
+            CameraPreviewView(session: videoService.videoCapture.captureSession, observable: faceDectectionService.$faceObservations.eraseToAnyPublisher())
             GeometryReader { geometry in
 //                if let box = faceDectectionService.faceObservations?.first?.boundingBox {
 //                    Path { path in
