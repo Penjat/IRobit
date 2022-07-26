@@ -24,7 +24,7 @@ class VideoCapture: NSObject {
         case invalidOutput
         case unknown
     }
-
+    
     /// The delegate to receive the captured frames.
     weak var delegate: VideoCaptureDelegate?
 
@@ -34,7 +34,9 @@ class VideoCapture: NSObject {
     /// A capture output that records video and provides access to video frames. Captured frames are passed to the
     /// delegate via the `captureOutput()` method.
     let videoOutput = AVCaptureVideoDataOutput()
-
+    
+    var resolution: CGSize?
+    
     /// The current camera's position.
     private(set) var cameraPostion = AVCaptureDevice.Position.front
 
@@ -112,7 +114,8 @@ class VideoCapture: NSObject {
             position: cameraPostion) else {
                 throw VideoCaptureError.invalidInput
         }
-
+        resolution = self.highestResolution420Format(for: captureDevice)?.resolution
+        print("resolution is : \(resolution)")
         // Remove any existing inputs.
         captureSession.inputs.forEach { input in
             captureSession.removeInput(input)
@@ -130,7 +133,32 @@ class VideoCapture: NSObject {
 
         captureSession.addInput(videoInput)
     }
-
+    
+    fileprivate func highestResolution420Format(for device: AVCaptureDevice) -> (format: AVCaptureDevice.Format, resolution: CGSize)? {
+        var highestResolutionFormat: AVCaptureDevice.Format? = nil
+        var highestResolutionDimensions = CMVideoDimensions(width: 0, height: 0)
+        
+        for format in device.formats {
+            let deviceFormat = format as AVCaptureDevice.Format
+            
+            let deviceFormatDescription = deviceFormat.formatDescription
+            if CMFormatDescriptionGetMediaSubType(deviceFormatDescription) == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange {
+                let candidateDimensions = CMVideoFormatDescriptionGetDimensions(deviceFormatDescription)
+                if (highestResolutionFormat == nil) || (candidateDimensions.width > highestResolutionDimensions.width) {
+                    highestResolutionFormat = deviceFormat
+                    highestResolutionDimensions = candidateDimensions
+                }
+            }
+        }
+        
+        if highestResolutionFormat != nil {
+            let resolution = CGSize(width: CGFloat(highestResolutionDimensions.width), height: CGFloat(highestResolutionDimensions.height))
+            return (highestResolutionFormat!, resolution)
+        }
+        
+        return nil
+    }
+    
     private func setCaptureSessionOutput() throws {
         // Remove any previous outputs.
         captureSession.outputs.forEach { output in

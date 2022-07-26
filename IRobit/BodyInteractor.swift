@@ -65,7 +65,6 @@ class BodyInteractor: ObservableObject {
                 self.connectedBody = nil
                 self.manager.startScanning()
             }
-            print(event)
         }).store(in: &bag)
         
         manager.start()
